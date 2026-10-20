@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Опора — центр психологической помощи</title>
+<meta name="description" content="Психологи и психотерапевты. Онлайн и очно. Первая встреча-знакомство бесплатно.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%231E3A36'/><circle cx='50' cy='50' r='16' fill='%23F1D88B'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Prata&display=swap" rel="stylesheet">
+<style>
+:root{--fog:#E8EEEB;--pine:#1E3A36;--moss:#6F8F72;--mist:#BFD3DA;--butter:#F1D88B;--ink:#13211E;--line:rgba(19,33,30,.16)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:17px/1.65 Manrope,system-ui,sans-serif;background:var(--fog);color:var(--ink);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Prata,Georgia,serif;font-weight:400;line-height:1.1;letter-spacing:-.015em}
+h1{font-size:clamp(40px,7vw,92px)}h2{font-size:clamp(30px,4.4vw,56px)}h3{font-size:24px}
+a{color:inherit}button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--butter);outline-offset:3px}
+.w{max-width:1180px;margin:0 auto;padding:0 28px}
+.sec{padding:110px 0}
+.lead{font-size:20px;max-width:560px;opacity:.82}
+[hidden]{display:none!important}
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:30;background:rgba(232,238,235,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .w{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:10px;font:24px Prata,serif;text-decoration:none}
+.logo i{width:22px;height:22px;border-radius:50%;background:var(--pine);position:relative}
+.logo i:after{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--butter)}
+nav{display:flex;gap:30px;align-items:center}
+nav a{text-decoration:none;font-weight:500;font-size:15px;position:relative;padding:4px 0}
+nav a:not(.btn):after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--pine);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+nav a:hover:after,nav a.act:after{transform:scaleX(1)}
+.burger{display:none;background:none;border:0;width:44px;height:44px}
+.burger span{display:block;height:2px;background:var(--ink);margin:7px 10px;transition:.3s}
+.btn{display:inline-block;background:var(--pine);color:#fff;text-decoration:none;border:0;padding:15px 28px;border-radius:99px;font-weight:700;font-size:16px;transition:transform .3s,background .3s,box-shadow .3s}
+.btn:hover{transform:translateY(-3px);background:#2a4f49;box-shadow:0 12px 24px -10px rgba(30,58,54,.6)}
+.btn.sm{padding:10px 20px;font-size:14px}
+.btn.gh{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn.gh:hover{background:var(--ink);color:#fff}
+.btn.bt{background:var(--butter);color:var(--ink)}.btn.bt:hover{background:#f6e3a5}
+/* page wipe */
+.wipe{position:fixed;inset:0;background:var(--pine);z-index:50;pointer-events:none;clip-path:circle(0 at 50% 50%);transition:clip-path .5s cubic-bezier(.7,0,.3,1)}
+.wipe.in{clip-path:circle(150% at 50% 50%)}
+.page{padding-top:72px;min-height:100vh}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;min-height:calc(100vh - 72px);padding:40px 0 60px}
+.hero h1{margin-bottom:28px}
+.hero .acts{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
+.hero .meta{margin-top:44px;display:flex;gap:36px;font-size:15px;opacity:.75;flex-wrap:wrap}
+.breath{position:relative;aspect-ratio:1;max-width:480px;width:100%;margin-left:auto;display:grid;place-items:center;border:0;background:none;color:var(--pine)}
+.breath b{position:absolute;border-radius:50%;inset:0;animation:br 8s ease-in-out infinite}
+.breath b:nth-child(1){background:var(--mist);opacity:.55}
+.breath b:nth-child(2){background:var(--moss);opacity:.5;inset:14%;animation-delay:.25s}
+.breath b:nth-child(3){background:var(--pine);inset:30%;animation-delay:.5s}
+.breath span{position:relative;color:var(--butter);font:28px Prata,serif;transition:opacity .4s}
+.breath small{position:absolute;bottom:-34px;font-size:14px;opacity:.6}
+@keyframes br{0%,100%{transform:scale(.72)}50%{transform:scale(1)}}
+.hero h1,.hero .lead,.hero .acts,.hero .meta{animation:up 1s both cubic-bezier(.2,.7,.2,1)}
+.hero .lead{animation-delay:.12s}.hero .acts{animation-delay:.24s}.hero .meta{animation-delay:.36s}
+@keyframes up{from{opacity:0;transform:translateY(30px)}}
+/* topics */
+.topics{display:flex;flex-wrap:wrap;gap:12px;margin-top:44px}
+.topic{background:transparent;border:1.5px solid var(--ink);border-radius:99px;padding:12px 24px;font-size:18px;transition:.3s}
+.topic:hover{background:var(--butter);border-color:var(--butter);transform:rotate(-2deg) scale(1.04)}
+/* steps */
+.steps{margin-top:60px;border-top:1px solid var(--line)}
+.step{display:grid;grid-template-columns:90px 1fr 1.4fr;gap:24px;padding:34px 0;border-bottom:1px solid var(--line);align-items:baseline;transition:padding .4s}
+.step:hover{padding-left:16px}
+.step em{font:normal 34px Prata,serif;color:var(--moss)}
+.dark{background:var(--pine);color:#fff}
+.dark .lead{opacity:.8}
+.quote{font:clamp(26px,3.4vw,44px)/1.25 Prata,serif;max-width:900px}
+.quote+p{margin-top:28px;opacity:.7}
+/* faq */
+details{border-bottom:1px solid var(--line);padding:24px 0}
+summary{font:22px Prata,serif;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font:300 34px/1 Manrope;transition:transform .3s;flex:none}
+details[open] summary:after{transform:rotate(45deg)}
+details p{margin-top:14px;max-width:720px;opacity:.85}
+.cta{text-align:center}.cta h2{max-width:800px;margin:0 auto 32px}
+/* team */
+.head{padding:80px 0 40px}.head h1{font-size:clamp(38px,6vw,76px);margin-bottom:20px}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 40px}
+.chip{border:1.5px solid var(--ink);background:none;border-radius:99px;padding:9px 20px;font-size:15px;font-weight:500;transition:.25s}
+.chip[aria-pressed=true],.chip:hover{background:var(--pine);border-color:var(--pine);color:#fff}
+.spec{display:grid;grid-template-columns:200px 1fr auto;gap:40px;padding:40px 0;border-top:1px solid var(--line);align-items:center;transition:opacity .4s}
+.av{width:180px;height:180px;display:grid;place-items:center;font:56px Prata,serif;color:var(--pine);animation:morph 9s ease-in-out infinite}
+@keyframes morph{0%,100%{border-radius:58% 42% 55% 45%/50% 55% 45% 50%}50%{border-radius:42% 58% 45% 55%/55% 45% 55% 45%}}
+.spec h3{margin-bottom:4px}.spec .role{color:var(--moss);font-weight:700;margin-bottom:12px}
+.spec p{max-width:560px;opacity:.85}
+.tags{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}.tags span{font-size:13px;background:rgba(111,143,114,.2);padding:4px 12px;border-radius:99px}
+.spec.off{display:none}
+/* services */
+.tog{display:inline-flex;background:rgba(19,33,30,.08);border-radius:99px;padding:5px;margin:10px 0 30px}
+.tog button{border:0;background:none;padding:10px 26px;border-radius:99px;font-weight:700;transition:.3s}
+.tog button[aria-pressed=true]{background:var(--pine);color:#fff}
+.svc{display:grid;grid-template-columns:1.3fr 1.6fr auto auto;gap:30px;padding:34px 0;border-top:1px solid var(--line);align-items:center}
+.svc .pr{font:32px Prata,serif;white-space:nowrap}.svc .du{opacity:.65;font-size:15px}
+.free{background:var(--butter);margin:0 -28px;padding:34px 28px;border-radius:24px;border:0;margin-bottom:6px}
+.note{margin-top:40px;padding:26px 30px;border-radius:20px;background:rgba(191,211,218,.55);max-width:760px}
+/* blog */
+.post{border-top:1px solid var(--line);padding:34px 0}
+.post button{all:unset;cursor:pointer;display:block;width:100%}
+.post small{opacity:.6;font-size:14px}.post h3{margin:6px 0;font-size:clamp(24px,3vw,34px);transition:color .3s}
+.post button:hover h3{color:var(--moss)}
+.post .body{max-height:0;overflow:hidden;transition:max-height .6s ease}
+.post .body p{max-width:680px;margin-top:16px;opacity:.88}
+/* form */
+.bk{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;padding-bottom:110px}
+form{display:grid;gap:22px}
+label,.lb{font-weight:700;font-size:15px;display:block;margin-bottom:6px}
+input[type=text],select,textarea{width:100%;font:inherit;padding:15px 18px;border-radius:14px;border:1.5px solid var(--line);background:#f6f9f7;transition:border .25s,box-shadow .25s}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--pine);box-shadow:0 0 0 4px rgba(111,143,114,.25)}
+input.bad{border-color:#b3412f}.err{color:#b3412f;font-size:14px;margin-top:4px;min-height:0}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.radios{display:flex;gap:10px;flex-wrap:wrap}
+.radios label{margin:0;font-weight:500}
+.radios input{position:absolute;opacity:0}
+.radios span{display:inline-block;border:1.5px solid var(--ink);border-radius:99px;padding:10px 22px;cursor:pointer;transition:.25s}
+.radios input:checked+span{background:var(--pine);color:#fff;border-color:var(--pine)}
+.radios input:focus-visible+span{outline:3px solid var(--butter);outline-offset:3px}
+.cons{display:flex;gap:12px;font-size:14px;align-items:flex-start;font-weight:400}
+.ok{padding:50px;border-radius:28px;background:var(--pine);color:#fff;animation:up .8s both}
+.ok h2{margin-bottom:16px}.ok p{opacity:.85;margin-bottom:24px}
+.contact p{margin:6px 0}.contact b{font:22px Prata,serif;font-weight:400}
+/* footer */
+footer{background:var(--ink);color:#cfd9d5;padding:70px 0 40px;font-size:15px}
+footer .w{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+footer a{display:block;text-decoration:none;padding:3px 0;opacity:.8}footer a:hover{opacity:1;color:var(--butter)}
+footer .logo{color:#fff;margin-bottom:14px}footer .logo i{background:var(--butter)}footer .logo i:after{background:var(--ink)}
+.fine{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.14);padding-top:24px;opacity:.6;font-size:13px}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}.rv.on{opacity:1;transform:none}
+@media(max-width:900px){
+.sec{padding:70px 0}.hero{grid-template-columns:1fr;min-height:0}.breath{margin:30px auto 20px;max-width:340px}
+.burger{display:block}
+nav{position:fixed;top:72px;left:0;right:0;background:var(--fog);flex-direction:column;padding:20px 28px 30px;gap:18px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:transform .4s;z-index:-1;align-items:flex-start}
+nav.open{transform:none}nav a{font-size:20px}
+.step{grid-template-columns:50px 1fr}.step p{grid-column:2}
+.spec{grid-template-columns:1fr;gap:20px}.av{width:130px;height:130px;font-size:40px}
+.svc{grid-template-columns:1fr auto;gap:10px 20px}.svc p{grid-column:1/-1;grid-row:2}.svc .btn{grid-column:1/-1}
+.bk{grid-template-columns:1fr;gap:40px}.row{grid-template-columns:1fr}
+footer .w{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header><div class="w">
+<a class="logo" href="#/"><i></i>Опора</a>
+<button class="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span></button>
+<nav id="nav">
+<a href="#/team" data-r="team">Специалисты</a>
+<a href="#/services" data-r="services">Услуги и цены</a>
+<a href="#/blog" data-r="blog">Статьи</a>
+<a class="btn sm" href="#/booking" data-r="booking">Записаться</a>
+</nav></div></header>
+<div class="wipe" id="wipe"></div>
+
+<!-- ГЛАВНАЯ -->
+<main class="page" id="p-home">
+<div class="w hero">
+<div>
+<h1>Здесь можно выдохнуть и разобраться</h1>
+<p class="lead">Психологи и психотерапевты с практикой от 7 лет. Работаем онлайн и очно, бережно и без осуждения. Первая встреча — знакомство на 20 минут, бесплатно.</p>
+<div class="acts"><a class="btn" href="#/booking">Записаться на встречу</a><a class="btn gh" href="#/team">Подобрать специалиста</a></div>
+<div class="meta"><span>1 400+ клиентов за 6 лет</span><span>Ответ в течение 2 часов</span></div>
+</div>
+<button class="breath" id="breath" aria-label="Дыхательное упражнение: следуйте за кругом"><b></b><b></b><b></b><span id="bt">вдох</span><small>Следуйте за кругом. Так начинается каждая наша сессия.</small></button>
+</div>
+
+<section class="sec"><div class="w">
+<h2 class="rv">С чем к нам приходят</h2>
+<p class="lead rv" style="margin-top:20px">Выберите тему — покажем специалистов, которые с ней работают.</p>
+<div class="topics rv">
+<button class="topic" data-f="anx">Тревога и страхи</button><button class="topic" data-f="burn">Выгорание и усталость</button><button class="topic" data-f="rel">Отношения</button><button class="topic" data-f="fam">Семья и дети</button><button class="topic" data-f="trauma">Потеря и травма</button><button class="topic" data-f="">Пока не знаю</button>
+</div></div></section>
+
+<section class="sec dark"><div class="w">
+<h2 class="rv">Как устроена работа</h2>
+<div class="steps">
+<div class="step rv"><em>1</em><h3>Заявка</h3><p>Оставляете имя и удобный способ связи. Мы отвечаем в течение двух часов в рабочее время.</p></div>
+<div class="step rv"><em>2</em><h3>Знакомство</h3><p>20 минут бесплатно: рассказываете, что беспокоит, и решаете, подходит ли вам специалист.</p></div>
+<div class="step rv"><em>3</em><h3>Регулярные сессии</h3><p>Одна встреча в неделю по 50 минут. Цели и план обсуждаем вместе и пересматриваем раз в месяц.</p></div>
+<div class="step rv"><em>4</em><h3>Завершение</h3><p>Работа заканчивается, когда вы сами чувствуете, что опора появилась. Без обязательных курсов.</p></div>
+</div></div></section>
+
+<section class="sec"><div class="w">
+<p class="quote rv">«Я пришла с паническими атаками и думала, что придётся всю жизнь их бояться. Через четыре месяца впервые поехала в метро одна.»</p>
+<p class="rv">Марина, 34 года, клиентка Анны Лебедевой. Публикуется с согласия.</p>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="w">
+<h2 class="rv" style="margin-bottom:30px">Частые вопросы</h2>
+<details><summary>Чем психолог отличается от психотерапевта?</summary><p>Психолог помогает с трудностями в рамках здоровой нормы: стресс, кризисы, отношения. Психотерапевт с медицинским образованием работает и с клиническими состояниями. Если нужна медицинская помощь, мы честно скажем об этом и направим к профильному врачу.</p></details>
+<details><summary>Как понять, что мне нужна помощь?</summary><p>Если тревога, апатия или конфликты держатся больше месяца и мешают работе, сну или близким, стоит поговорить со специалистом. Приходить можно и без «серьёзной» причины.</p></details>
+<details><summary>Это конфиденциально?</summary><p>Да. Всё, что вы рассказываете, остаётся между вами и специалистом. Исключение — прямая угроза жизни, о чём мы предупреждаем на первой встрече.</p></details>
+<details><summary>Сколько нужно сессий?</summary><p>В среднем от 8 до 20 встреч, но всё зависит от запроса. Краткосрочная работа возможна с первых недель, а мы не продлеваем терапию ради продления.</p></details>
+<details><summary>Можно перенести или отменить сессию?</summary><p>Да, бесплатно — не позднее чем за 24 часа до встречи.</p></details>
+</div></section>
+
+<section class="sec dark cta"><div class="w"><h2 class="rv">Первый шаг — самый трудный. Мы сделали его проще.</h2><a class="btn bt" href="#/booking">Записаться на знакомство</a></div></section>
+</main>
+
+<!-- СПЕЦИАЛИСТЫ -->
+<main class="page" id="p-team" hidden><div class="w">
+<div class="head"><h1>Специалисты</h1><p class="lead">Четыре человека, которым мы бы доверили близких. Выберите тему или познакомьтесь со всеми.</p></div>
+<div class="chips" id="chips">
+<button class="chip" data-f="" aria-pressed="true">Все</button><button class="chip" data-f="anx" aria-pressed="false">Тревога</button><button class="chip" data-f="burn" aria-pressed="false">Выгорание</button><button class="chip" data-f="rel" aria-pressed="false">Отношения</button><button class="chip" data-f="fam" aria-pressed="false">Семья</button><button class="chip" data-f="trauma" aria-pressed="false">Травма</button>
+</div>
+<div id="specs">
+<article class="spec" data-t="anx burn"><div class="av" style="background:var(--mist)">АЛ</div><div><h3>Анна Лебедева</h3><div class="role">Клинический психолог, КПТ · 9 лет практики</div><p>Работает с тревогой, паническими атаками и профессиональным выгоранием. Структурно и спокойно: вы получаете понятные инструменты, а не просто разговор.</p><div class="tags"><span>Тревога</span><span>Панические атаки</span><span>Выгорание</span></div></div><a class="btn sm" href="#/booking" data-s="Анна Лебедева">Записаться</a></article>
+<article class="spec" data-t="rel burn"><div class="av" style="background:var(--butter)">МК</div><div><h3>Михаил Ковалёв</h3><div class="role">Гештальт-терапевт · 12 лет практики</div><p>Помогает разобраться в отношениях, самооценке и жизненных кризисах. Фокус на том, что вы чувствуете здесь и сейчас, без готовых советов.</p><div class="tags"><span>Отношения</span><span>Самооценка</span><span>Кризисы</span></div></div><a class="btn sm" href="#/booking" data-s="Михаил Ковалёв">Записаться</a></article>
+<article class="spec" data-t="fam rel"><div class="av" style="background:#c9d9c3">ЕС</div><div><h3>Елена Сомова</h3><div class="role">Семейный психолог · 11 лет практики</div><p>Работает с парами, разводами и детско-родительскими конфликтами. Принимает обоих партнёров без выбора «правого».</p><div class="tags"><span>Пары</span><span>Развод</span><span>Родители и дети</span></div></div><a class="btn sm" href="#/booking" data-s="Елена Сомова">Записаться</a></article>
+<article class="spec" data-t="trauma anx"><div class="av" style="background:#d7cfe0">ДН</div><div><h3>Дарья Нестерова</h3><div class="role">Травматерапевт, EMDR · 7 лет практики</div><p>Сопровождает после потерь, насилия и тяжёлых событий. Темп задаёте вы, никаких подробностей, к которым вы не готовы.</p><div class="tags"><span>Травма</span><span>Утрата</span><span>EMDR</span></div></div><a class="btn sm" href="#/booking" data-s="Дарья Нестерова">Записаться</a></article>
+</div></div><div style="height:90px"></div></main>
+
+<!-- УСЛУГИ -->
+<main class="page" id="p-services" hidden><div class="w">
+<div class="head"><h1>Услуги и цены</h1><p class="lead">Стоимость фиксированная, без скрытых доплат. Оплата после встречи.</p></div>
+<div class="tog" role="group" aria-label="Формат"><button aria-pressed="true" data-m="on">Онлайн</button><button aria-pressed="false" data-m="off">Очно</button></div>
+<div class="svc free"><div><h3>Знакомство</h3><span class="du">20 минут</span></div><p>Короткий разговор, чтобы понять запрос и выбрать специалиста. Ни к чему не обязывает.</p><div class="pr">0 ₽</div><a class="btn sm" href="#/booking">Записаться</a></div>
+<div class="svc"><div><h3>Индивидуальная сессия</h3><span class="du">50 минут</span></div><p>Работа один на один над вашим запросом: тревога, отношения, выбор, кризис.</p><div class="pr"><span class="p" data-on="4500" data-off="5500"></span> ₽</div><a class="btn sm" href="#/booking">Записаться</a></div>
+<div class="svc"><div><h3>Парная терапия</h3><span class="du">80 минут</span></div><p>Встречи для двоих: разговор, который не превращается в ссору.</p><div class="pr"><span class="p" data-on="6500" data-off="7500"></span> ₽</div><a class="btn sm" href="#/booking">Записаться</a></div>
+<div class="svc"><div><h3>Группа поддержки</h3><span class="du">90 минут</span></div><p>До 8 человек, закрытая группа. Для тех, кому важно услышать, что они не одни.</p><div class="pr"><span class="p" data-on="1800" data-off="2200"></span> ₽</div><a class="btn sm" href="#/booking">Записаться</a></div>
+<div class="svc"><div><h3>Пакет из 8 сессий</h3><span class="du">8 × 50 минут</span></div><p>Для регулярной работы. Экономия 10%, действует 3 месяца.</p><div class="pr"><span class="p" data-on="32400" data-off="39600"></span> ₽</div><a class="btn sm" href="#/booking">Записаться</a></div>
+<div class="note">Психологическая помощь не заменяет экстренную медицинскую. Если вы в опасности или думаете о причинении себе вреда, позвоните по номеру 112.</div>
+</div><div style="height:100px"></div></main>
+
+<!-- СТАТЬИ -->
+<main class="page" id="p-blog" hidden><div class="w">
+<div class="head"><h1>Статьи</h1><p class="lead">Короткие тексты от наших специалистов. Без диагнозов и громких обещаний.</p></div>
+<article class="post"><button aria-expanded="false"><small>Анна Лебедева · 5 минут чтения</small><h3>Как остановить тревожную спираль за три минуты</h3></button><div class="body"><p>Тревога питается вопросом «а что, если?». Сначала назовите вслух, что вы чувствуете: «Я тревожусь, потому что…». Это переключает мозг с эмоциональных центров на речевые.</p><p>Затем найдите пять предметов вокруг, четыре звука, три ощущения тела. Дышите так, чтобы выдох был длиннее вдоха: на четыре счёта вдох, на шесть выдох. Через три минуты пульс обычно снижается. Если приступы повторяются, это повод обратиться к специалисту.</p></div></article>
+<article class="post"><button aria-expanded="false"><small>Михаил Ковалёв · 6 минут чтения</small><h3>Почему мы срываемся на близких, а не на чужих</h3></button><div class="body"><p>С близкими мы безопаснее: нам кажется, что нас не бросят. Поэтому усталость, накопленная на работе, выходит дома. Это не делает вас плохим человеком, но это сигнал.</p><p>Попробуйте раньше замечать момент, когда тело напрягается. И скажите близкому не «ты меня достал», а «мне сейчас нужно десять минут тишины». Разница огромная.</p></div></article>
+<article class="post"><button aria-expanded="false"><small>Елена Сомова · 4 минуты чтения</small><h3>Семь вопросов, которые стоит задать до разговора о разводе</h3></button><div class="body"><p>Чего я хочу: расстаться или чтобы что-то изменилось? Говорил ли я об этом прямо? Что я готов менять сам? Есть ли у нас общие ценности, или остались только привычки?</p><p>Ответы не обязательно показывать партнёру. Но если вы честно ответили на все, разговор начнётся с ясной позиции, а не с обвинений.</p></div></article>
+<article class="post"><button aria-expanded="false"><small>Дарья Нестерова · 5 минут чтения</small><h3>Горе не проходит по графику</h3></button><div class="body"><p>Пять стадий принятия — удобная схема, но не расписание. Горе возвращается волнами: годовщины, запахи, песни. Это нормально.</p><p>Если через несколько месяцев вы не можете работать, спать или есть, помощь специалиста поможет не «забыть», а научиться жить с утратой.</p></div></article>
+</div><div style="height:100px"></div></main>
+
+<!-- ЗАПИСЬ -->
+<main class="page" id="p-booking" hidden><div class="w">
+<div class="head"><h1>Запись</h1></div>
+<div class="bk">
+<div class="contact"><p class="lead">Оставьте заявку, мы свяжемся в течение двух часов и подберём время. Знакомство бесплатно.</p><br>
+<p><b>+7 (000) 000-00-00</b></p><p>hello@opora.example</p><p>Москва, ул. Примерная, 12 (очные встречи)</p><p>Ежедневно 9:00–21:00</p></div>
+<div>
+<form id="f" novalidate>
+<div class="row"><div><label for="n">Как к вам обращаться</label><input type="text" id="n" autocomplete="given-name"><div class="err" id="en"></div></div>
+<div><label for="c">Телефон или Telegram</label><input type="text" id="c" autocomplete="tel"><div class="err" id="ec"></div></div></div>
+<div><label for="s">Специалист</label><select id="s"><option>Помогите выбрать</option><option>Анна Лебедева</option><option>Михаил Ковалёв</option><option>Елена Сомова</option><option>Дарья Нестерова</option></select></div>
+<div><span class="lb">Формат</span><div class="radios"><label><input type="radio" name="fm" value="онлайн" checked><span>Онлайн</span></label><label><input type="radio" name="fm" value="очно"><span>Очно</span></label></div></div>
+<div><label for="m">Что вас беспокоит (по желанию)</label><textarea id="m" rows="4"></textarea></div>
+<label class="cons"><input type="checkbox" id="k"> <span>Согласен на обработку персональных данных. Информация конфиденциальна.<div class="err" id="ek"></div></span></label>
+<button class="btn" type="submit">Отправить заявку</button>
+</form>
+<div class="ok" id="ok" hidden><h2>Заявка принята</h2><p id="okt"></p><a class="btn bt" href="#/">На главную</a></div>
+</div></div></div></main>
+
+<footer><div class="w">
+<div><a class="logo" href="#/"><i></i>Опора</a><p>Центр психологической помощи. Онлайн и очно, бережно и без осуждения.</p></div>
+<div><a href="#/team">Специалисты</a><a href="#/services">Услуги и цены</a><a href="#/blog">Статьи</a><a href="#/booking">Запись</a></div>
+<div><a href="tel:+70000000000">+7 (000) 000-00-00</a><a href="mailto:hello@opora.example">hello@opora.example</a><a href="#/booking">Telegram</a></div>
+<div class="fine">© 2026 Опора. Психологическая помощь не заменяет экстренную медицинскую. При угрозе жизни звоните 112.</div>
+</div></footer>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const pages=$$('.page'),wipe=$('#wipe'),nav=$('#nav'),bur=$('.burger');
+const titles={home:'Опора — центр психологической помощи',team:'Специалисты — Опора',services:'Услуги и цены — Опора',blog:'Статьи — Опора',booking:'Запись — Опора'};
+let cur=null,filter='';
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)}}),{threshold:.15});
+$$('.rv').forEach(e=>io.observe(e));
+function swap(r){
+  pages.forEach(p=>p.hidden=p.id!=='p-'+r);
+  $$('nav a').forEach(a=>a.classList.toggle('act',a.dataset.r===r&&!a.classList.contains('btn')));
+  document.title=titles[r];scrollTo(0,0);cur=r;
+  nav.classList.remove('open');bur.setAttribute('aria-expanded','false');
+}
+function route(){
+  let r=location.hash.replace(/^#\/?/,'')||'home';
+  if(!$('#p-'+r))r='home';
+  if(r===cur)return;
+  if(cur===null){swap(r);return}
+  wipe.classList.add('in');
+  setTimeout(()=>{swap(r);requestAnimationFrame(()=>wipe.classList.remove('in'))},520);
+}
+addEventListener('hashchange',route);route();
+bur.onclick=()=>{const o=nav.classList.toggle('open');bur.setAttribute('aria-expanded',o)};
+/* дыхание */
+const bt=$('#bt');let ph=0;
+setInterval(()=>{ph^=1;bt.style.opacity=0;setTimeout(()=>{bt.textContent=ph?'выдох':'вдох';bt.style.opacity=1},300)},4000);
+/* фильтр специалистов */
+function applyFilter(f){
+  filter=f;
+  $$('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.f===f));
+  $$('.spec').forEach(s=>s.classList.toggle('off',!!f&&!s.dataset.t.split(' ').includes(f)));
+}
+$$('.chip').forEach(c=>c.onclick=()=>applyFilter(c.dataset.f));
+$$('.topic').forEach(t=>t.onclick=()=>{applyFilter(t.dataset.f);location.hash='#/team'});
+/* цены */
+function price(m){
+  $$('.p').forEach(p=>p.textContent=(+p.dataset[m]).toLocaleString('ru-RU'));
+  $$('.tog button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===m));
+}
+$$('.tog button').forEach(b=>b.onclick=()=>price(b.dataset.m));price('on');
+/* статьи */
+$$('.post button').forEach(b=>b.onclick=()=>{
+  const body=b.nextElementSibling,open=b.getAttribute('aria-expanded')==='true';
+  $$('.post').forEach(p=>{p.querySelector('button').setAttribute('aria-expanded','false');p.querySelector('.body').style.maxHeight=0});
+  if(!open){b.setAttribute('aria-expanded','true');body.style.maxHeight=body.scrollHeight+'px'}
+});
+/* запись */
+$$('[data-s]').forEach(a=>a.addEventListener('click',()=>{$('#s').value=a.dataset.s}));
+const f=$('#f');
+f.onsubmit=e=>{
+  e.preventDefault();let ok=true;
+  const chk=(id,er,bad,msg)=>{$('#'+er).textContent=bad?msg:'';if(id)$('#'+id).classList.toggle('bad',bad);if(bad)ok=false};
+  chk('n','en',!$('#n').value.trim(),'Укажите, как к вам обращаться');
+  chk('c','ec',$('#c').value.trim().length<5,'Укажите телефон или Telegram, чтобы мы могли связаться');
+  chk(null,'ek',!$('#k').checked,'Нужно ваше согласие, чтобы отправить заявку');
+  if(!ok)return;
+  const fm=$('input[name=fm]:checked').value,sp=$('#s').value;
+  $('#okt').textContent=$('#n').value.trim()+', мы свяжемся с вами в течение двух часов. Формат: '+fm+'. Специалист: '+sp.toLowerCase()+'.';
+  /* ПОДКЛЮЧЕНИЕ: здесь отправьте данные на ваш сервер, Formspree, Telegram-бота или CRM */
+  f.hidden=true;$('#ok').hidden=false;
+};
+</script>
+</body>
+</html>
